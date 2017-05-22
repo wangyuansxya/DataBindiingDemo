@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="msg"
+            type="com.wangyuan.databindiingdemo.bean.MessageBean"/>
+        
+        <variable
+            name="showImage"
+            type="boolean"/>
+
+        <variable
+            name="preSenter"
+            type="com.wangyuan.databindiingdemo.AnimationActivity.PreSenter"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="@{showImage ? View.VISIBLE : View.GONE}"
+            app:imageUrl="@{msg.imageUrl}"
+            app:placeholder="@{@drawable/ic_launcher}" />
+
+        <CheckBox
+            android:id="@+id/cb"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="选择"
+            android:onCheckedChanged="@{(view, checked) -> preSenter.onCheckChanged(view, checked)}"
+            />
+    </LinearLayout>
+</layout>

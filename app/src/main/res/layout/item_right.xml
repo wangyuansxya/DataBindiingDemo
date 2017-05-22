@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="msg"
+            type="com.wangyuan.databindiingdemo.bean.MessageBean" />
+        <variable
+            name="preSenter"
+            type="com.wangyuan.databindiingdemo.adapter.DataBindingAdapter.PreSenter"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{preSenter.onClick}">
+
+        <Button
+            android:id="@+id/btn_show"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{msg.secondName}" />
+        <ImageView
+            android:id="@+id/btn_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:imageUrl="@{msg.imageUrl}"
+            android:layout_below="@+id/btn_show"
+            android:layout_alignParentRight="true"
+            app:placeholder="@{@drawable/ic_launcher}"
+            />
+    </RelativeLayout>
+</layout>

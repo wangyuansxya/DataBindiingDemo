@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="msg"
+            type="com.wangyuan.databindiingdemo.bean.MessageBean"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:imageUrl="@{msg.imageUrl}"
+            app:placeholder="@{@drawable/ic_launcher}" />
+
+        <View
+            android:id="@+id/viewColor"
+            android:layout_width="100dp" android:layout_height="100dp"
+            android:visibility="@{msg.isRed ?  View.VISIBLE : View.GONE}"
+            android:background="@{msg.isRed ? @color/colorPrimary : @color/colorAccent}"
+            />
+
+        <TextView
+            android:id="@+id/view_color1"
+            android:layout_width="100dp" android:layout_height="100dp"
+            android:visibility="@{viewColor.visibility}"
+            android:text="view_color1"
+            android:background="@{@color/colorAccent}"
+            />
+
+        <TextView
+            android:id="@+id/view_color2"
+            android:layout_width="100dp" android:layout_height="100dp"
+            android:background="@{@color/colorAccent}"
+            android:text="view_color2"
+            android:visibility="@{viewColor.visibility}"
+            />
+
+        <CheckBox
+            android:id="@+id/cb"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:checked="true"
+            android:visibility="@{viewColor.visibility}"
+            />
+
+        <TextView
+            android:id="@+id/view_color3"
+            android:layout_width="100dp" android:layout_height="100dp"
+            android:background="@{@color/colorAccent}"
+            android:text="view_color3"
+            android:visibility="@{cb.checked ? View.VISIBLE : View.GONE}"
+            />
+    </LinearLayout>
+</layout>

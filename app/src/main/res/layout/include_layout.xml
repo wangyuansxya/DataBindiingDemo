@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data >
+
+        <variable
+            name="messageBean"
+            type="com.wangyuan.databindiingdemo.bean.MessageBean"/>
+        <variable
+            name="preSenter"
+            type="com.wangyuan.databindiingdemo.MainActivity.PreSenter"/>
+        <import type="android.view.View"/>
+    </data>
+
+
+<LinearLayout
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/third_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> preSenter.getDataFromBindXml(messageBean)}"
+        android:text="@{messageBean.thirdName}" />
+</LinearLayout>
+
+</layout>

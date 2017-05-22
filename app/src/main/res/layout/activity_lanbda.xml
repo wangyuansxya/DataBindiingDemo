@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        databinding不支持merge标签
+    -->
+    <data >
+
+        <variable
+            name="messageBean"
+            type="com.wangyuan.databindiingdemo.bean.MessageBean"/>
+        <variable
+            name="preSenter"
+            type="com.wangyuan.databindiingdemo.LambdaActivity.PreSenter"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.wangyuan.databindiingdemo.LambdaActivity">
+
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@{messageBean.firtName}"/>
+
+        <Button
+            android:id="@+id/first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:transitionName='@{"image_" + messageBean.firtName}'
+            android:onClick="@{preSenter.onClick}"
+            android:text="@{messageBean.firtName}" />
+
+        <Button
+            android:id="@+id/second_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onFocusChange="@{(view, fcs) -> preSenter.onFocusChange(messageBean)}"
+            android:onClick="@{(view) -> preSenter.onClick(view, messageBean)}"
+            android:text="@{messageBean.firtName}" />
+
+    </LinearLayout>
+</layout>

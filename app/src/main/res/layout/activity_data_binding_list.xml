@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <data>
+
+        <variable
+            name="msg"
+            type="com.wangyuan.databindiingdemo.bean.MessageBean" />
+
+        <variable
+            name="preSenter"
+            type="com.wangyuan.databindiingdemo.DataBindingListActivity.PreSenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{preSenter.onClick}"
+            android:text="添加数据" />
+
+        <Button
+            android:id="@+id/btn_remove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{preSenter.onClick}"
+            android:text="删除数据" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</layout>
